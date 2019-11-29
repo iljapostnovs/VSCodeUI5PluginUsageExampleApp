@@ -1,0 +1,20 @@
+<mvc:View
+	controllerName="com.test.controller.Master"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	displayBlock="true"
+	busyIndicatorDelay="0"
+>
+	<Page>
+		<Text id="idText" text="Hello world"/>
+
+		<footer>
+			<Toolbar>
+				<Button
+					id="idButtonFooter"
+				/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
