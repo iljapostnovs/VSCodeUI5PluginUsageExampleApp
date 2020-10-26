@@ -62,10 +62,6 @@ sap.ui.define([
 			this.getView().getModel().getProperty("/recipient/name");
 			var sMsg = oBundle.getText("helloMsg", [sRecipient]);
 
-			const oText = this.getView().byId("idText");
-			const oTextTwo = oText;
-			oTextTwo.text;
-
 			// show message
 			// MessageToast.show(sMsg);
 
@@ -84,6 +80,11 @@ sap.ui.define([
 			this.getOwnerComponent().openHelloDialog();
 			this._test2 = new Formatter();
 			this._test123 = 123;
+
+
+			const oText = this.getView().byId("idText");
+			const oTextTwo = oText;
+			this._oText = oTextTwo;
 
 			return new Promise();
 
