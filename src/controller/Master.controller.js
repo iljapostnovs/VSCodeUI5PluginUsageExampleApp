@@ -70,7 +70,7 @@ sap.ui.define([
 			this._customClassExtend = new CustomClassExtend();
 
 			this._customClassExtend._customField.getBinding();
-			// this._customClassExtend.customMethod().
+			this._customClassExtend.customMethod().
 			// test2.
 
 			this._oMessageBox = test2;
