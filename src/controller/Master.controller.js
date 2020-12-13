@@ -162,6 +162,18 @@ sap.ui.define([
 		 */
 		_getStringArray: function(oDialog) {
 			return [oDialog.getTitle()];
+		},
+
+		_getMixedArrayMethodArray: function() {
+			const aStrings = ["1", "2"];
+			const aDialogs = aStrings
+			.map(sString => {
+				return new Dialog({title: sString});
+			})
+			.filter(oDialog => oDialog.getTitle())
+			.find(oDialog => oDialog.getTitle());
+
+			return [aDialogs];
 		}
 	});
 
