@@ -2,12 +2,18 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageToast",
 	"com/test/util/Formatter",
-	"com/test/util/CustomClassExtend"
+	"com/test/util/CustomClassExtend",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator",
+	"sap/m/Dialog"
 ], function (
 	Controller,
 	MessageToast,
 	Formatter,
-	CustomClassExtend
+	CustomClassExtend,
+	Filter,
+	FilterOperator,
+	Dialog
 ) {
 	"use strict";
 	const test = Controller.extend("com.test.controller.Master", {
@@ -106,6 +112,56 @@ sap.ui.define([
 
 		_getMap: function() {
 			return {};
+		},
+
+		_testArrayMethods: function() {
+			const aStringArray = this._getStringArray();
+			const aFilterArray = this._mapToFilterArray(aStringArray);
+			const aDialogArray = this._mapToDialogArray(aFilterArray);
+			const aFilteredDialogArray = this._filterDialogArray(aDialogArray);
+			const oDialog = this._findDialog(aFilteredDialogArray);
+		},
+
+		_mapToFilterArray: function(aStringArray) {
+			const aFilterArray = aStringArray.map(sFilter => {
+				return new Filter("test", FilterOperator.EQ, sFilter);
+			});
+
+			return aFilterArray;
+		},
+
+		/**
+		 * @param {sap.ui.model.Filter[]} aFilterArray array
+		 */
+		_mapToDialogArray: function(aFilterArray) {
+			const aDialogArray = aFilterArray.map(oFilter => {
+				return new Dialog();
+			});
+
+			return aDialogArray;
+		},
+
+		/**
+		 * @param {sap.m.Dialog[]} aDialogArray array
+		 */
+		_filterDialogArray: function(aDialogArray) {
+			return aDialogArray.filter(oDialog => {
+				return oDialog.getTitle() === "Hey";
+			});
+		},
+
+		/**
+		 * @param {sap.m.Dialog[]} aDialogArray array
+		 */
+		_findDialog: function(aDialogArray) {
+			return aDialogArray.find(oDialog => oDialog.getTitle() === "Hey");
+		},
+
+		/**
+		 * @param {sap.m.Dialog} oDialog dialog
+		 */
+		_getStringArray: function(oDialog) {
+			return [oDialog.getTitle()];
 		}
 	});
 
