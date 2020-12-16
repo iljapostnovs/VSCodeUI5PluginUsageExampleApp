@@ -9,6 +9,8 @@
 		<Text id="idText" text="Hello world"/>
 		<Table
 			id="idTable"
+			selectionChange="onTableSelectionChange"
+			swipe="onTableSwipe"
 		/>
 		<footer>
 			<Toolbar>

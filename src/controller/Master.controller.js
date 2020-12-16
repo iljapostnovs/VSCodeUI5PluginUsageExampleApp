@@ -174,6 +174,15 @@ sap.ui.define([
 			.find(oDialog => oDialog.getTitle());
 
 			return [aDialogs];
+		},
+
+		onTableSelectionChange: function(oEvent) {
+			const oListItem = oEvent.getParameter("listItem");
+			return oListItem;
+		},
+
+		onTableSwipe: function(oEvent) {
+			return oEvent.getSource();
 		}
 	});
 
