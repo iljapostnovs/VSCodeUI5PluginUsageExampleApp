@@ -56,6 +56,9 @@
 				"settings": {
 					"bundleName": "com.test.i18n.i18n"
 				}
+			},
+			"TestModel": {
+				"type": "com.test.util.TestModel"
 			}
 		},
 		"config": {

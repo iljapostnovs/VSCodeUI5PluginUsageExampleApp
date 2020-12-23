@@ -17,6 +17,20 @@ sap.ui.define([
 ) {
 	"use strict";
 	const test = Controller.extend("com.test.controller.Master", {
+		onInit: function() {
+			const oModel = this.getView().getModel("TestModel");
+			this.getView().setModel(oModel, "MyModel");
+			this.getView().setModel(oModel);
+		},
+
+		_testMyModel: function() {
+			this.getView().getModel("MyModel").testMethod();
+		},
+
+		_testAnonymousModel: function() {
+			this.getView().getModel().testMethod();
+		},
+
 		formatter: Formatter,
 		/**
 		 * @param {sap.m.MessageToast} test class
