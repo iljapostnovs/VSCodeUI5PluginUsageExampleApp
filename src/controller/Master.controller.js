@@ -76,7 +76,7 @@ sap.ui.define([
 			this._customClassExtend = new CustomClassExtend();
 
 			this._customClassExtend._customField.getBinding();
-			this._customClassExtend.customMethod().
+			this._customClassExtend.customMethod();
 			// test2.
 
 			this._oMessageBox = test2;
@@ -183,7 +183,9 @@ sap.ui.define([
 
 		onTableSwipe: function(oEvent) {
 			return oEvent.getSource();
-		}
+		},
+
+		methodFromFormatter: CustomClassExtend.staticTest
 	});
 
 	return test;
