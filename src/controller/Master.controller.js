@@ -21,6 +21,8 @@ sap.ui.define([
 			const oModel = this.getView().getModel("TestModel");
 			this.getView().setModel(oModel, "MyModel");
 			this.getView().setModel(oModel);
+			const oList = this.byId("idTable");
+			oList.setBusy(true);
 		},
 
 		_testMyModel: function() {
@@ -113,7 +115,7 @@ sap.ui.define([
 		_getTable: function() {
 			this._oTable = this.getView().byId("idTable");
 
-			return this.getView().byId("idTable");
+			return this.byId("idTable");
 		},
 
 		_getArray: function() {
