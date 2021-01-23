@@ -34,6 +34,11 @@ sap.ui.define([
 			oText.setText(123);
 
 			sap.ui.xmlfragment("com.test.view.fragments.SecondFragment");
+			sap.ui.xmlfragment("com.test.view.fragments.ThirdFragment");
+		},
+
+		onThirdFragmentSelectionChange: function() {
+
 		},
 
 		/**
