@@ -33,11 +33,23 @@ sap.ui.define([
 			this._testMethodParams("123", new sap.m.Dialog());
 			oText.setText(123);
 
+			this.getRouter().getRoute("Test").attachMatched(null, this._onRouteMatched, this);
+			this.getRouter().getRoute("Test").attachEvent("matched", this._onRouteMatched2, this);
+			this.getRouter().getRoute("Test").attachMatched(this._onRouteMatched3, this);
+
 			sap.ui.xmlfragment("com.test.view.fragments.SecondFragment");
 			sap.ui.xmlfragment("com.test.view.fragments.ThirdFragment");
 		},
 
-		onThirdFragmentSelectionChange: function() {
+		_onRouteMatched: function(oEvent) {
+
+		},
+
+		_onRouteMatched2: function(oEvent) {
+
+		},
+
+		_onRouteMatched3: function(oEvent) {
 
 		},
 
@@ -65,6 +77,19 @@ sap.ui.define([
 
 		onSecondFragmentSelectionChange: function(oEvent) {
 
+		},
+
+		onThirdFragmentSelectionChange: function(oEvent) {
+
+		},
+
+		/**
+		 * function for getting the Router
+		 * @public
+		 * @returns {sap.m.routing.Router} - Router
+		 */
+		getRouter: function() {
+			return UIComponent.getRouterFor(this);
 		}
 	});
 });
