@@ -90,6 +90,10 @@ sap.ui.define([
 		 */
 		getRouter: function() {
 			return UIComponent.getRouterFor(this);
+		},
+
+		unusedMethod: function() {
+
 		}
 	});
 });
