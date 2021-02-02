@@ -1,9 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/m/Dialog"
+	"sap/m/Dialog",
+	"sap/ui/Device"
 ], function(
 	Controller,
-	Dialog
+	Dialog,
+	Device
 ) {
 	"use strict";
 
@@ -32,6 +34,7 @@ sap.ui.define([
 			this._testMethodParams("123");
 			this._testMethodParams("123", new sap.m.Dialog());
 			oText.setText(123);
+			oText.setBusy(Device.system.phone);
 
 			this.getRouter().getRoute("Test").attachMatched(null, this._onRouteMatched, this);
 			this.getRouter().getRoute("Test").attachEvent("matched", this._onRouteMatched2, this);
