@@ -87,7 +87,7 @@ sap.ui.define([
 		},
 
 		/**
-		 * @param {sap.m.ListBase|sap.m.Label} vInput input
+		 * @param {sap.m.ListBase|sap.m.Label} vListBaseOrLabel input
 		 */
 		_testMultipleTypesTestMethod: function(vListBaseOrLabel) {
 
