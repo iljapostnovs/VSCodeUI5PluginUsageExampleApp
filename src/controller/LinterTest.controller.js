@@ -42,6 +42,8 @@ sap.ui.define([
 
 			sap.ui.xmlfragment("com.test.view.fragments.SecondFragment");
 			sap.ui.xmlfragment("com.test.view.fragments.ThirdFragment");
+
+			this._arrayExample();
 		},
 
 		_onRouteMatched: function(oEvent) {
@@ -97,6 +99,24 @@ sap.ui.define([
 
 		unusedMethod: function() {
 
+		},
+
+		_arrayExample: function() {
+			const aArray = [];
+			const mMap = this._getMap();
+			this._takesObjectAndReturnsIt(mMap);
+		},
+
+		/**
+		 * @param {object} oObject
+		 */
+		_takesObjectAndReturnsIt: function(oObject) {
+			return oObject;
+		},
+
+		_getMap: function() {
+			var aRecords = this.getView().getModel().getProperty("/");
+			return aRecords.find(sValue => ({asd: 123}));
 		}
 	});
 });
