@@ -1,11 +1,13 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/Dialog",
-	"sap/ui/Device"
+	"sap/ui/Device",
+	"sap/ui/model/odata/type/Decimal"
 ], function(
 	Controller,
 	Dialog,
-	Device
+	Device,
+	Decimal
 ) {
 	"use strict";
 
@@ -70,7 +72,7 @@ sap.ui.define([
 		},
 
 		/**
-		 * @param {sap.m.Dialog|sap.m.Text} [vWhatIsThat] multiple type variable
+		 * @param {sap.m.Dialog|sap.m.Text|sap.m.Table} [vWhatIsThat] multiple type variable
 		 */
 		_testMultipleTypes: function(vWhatIsThat) {
 			this._testMultipleTypes(new Text());
@@ -78,6 +80,19 @@ sap.ui.define([
 			this._testMultipleTypes([]);
 			this._testMultipleTypes();
 			this._testMultipleTypes(vWhatIsThat);
+
+			const oDecimal = new Decimal();
+			const sValue = oDecimal.formatValue("123", "string");
+			oDecimal.validateValue(sValue);
+
+			this._testMultipleTypesTestMethod(vWhatIsThat);
+		},
+
+		/**
+		 * @param {sap.m.ListBase|sap.m.Label} vListBaseOrLabel input
+		 */
+		_testMultipleTypesTestMethod: function(vListBaseOrLabel) {
+
 		},
 
 		onSecondFragmentSelectionChange: function(oEvent) {
