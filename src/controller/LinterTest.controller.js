@@ -2,16 +2,19 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/Dialog",
 	"sap/ui/Device",
-	"sap/ui/model/odata/type/Decimal"
+	"sap/ui/model/odata/type/Decimal",
+	"com/test/util/Formatter"
 ], function(
 	Controller,
 	Dialog,
 	Device,
-	Decimal
+	Decimal,
+	Formatter
 ) {
 	"use strict";
 
 	return Controller.extend("com.test.controller.LinterTest", {
+		formatter: Formatter,
 
 		_onDelete: function(oEvent) {
 
@@ -132,6 +135,13 @@ sap.ui.define([
 		_getMap: function() {
 			var aRecords = this.getView().getModel().getProperty("/");
 			return aRecords.find(sValue => ({asd: 123}));
+		},
+
+		onPaste: function() {
+		},
+
+		_onItemPress: function() {
+
 		}
 	});
 });

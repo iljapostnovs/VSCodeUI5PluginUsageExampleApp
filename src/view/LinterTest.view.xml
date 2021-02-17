@@ -10,7 +10,6 @@
 >
 	<Page>
 		<nonExistantAggregation>
-
 		</nonExistantAggregation>
 		<content>
 			<Table
@@ -19,12 +18,13 @@
 				wrongProperty=""
 				selectionChange="nonExistantEventHandler"
 				delete="_onDelete"
+				paste=".onPaste"
+				itemPress="_onItemPress(${$parameters>/value})"
 				busy="false"
 			>
 			</Table>
 			<s:WrongNamespace/>
 			<NonExistantClass/>
-
 			<c:Fragment
 				fragmentName="com.test.view.fragments.LinterTest"
 				type="XML"
